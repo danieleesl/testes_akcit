@@ -16,8 +16,7 @@ Ao solicitar um agendamento, a API consulta a disponibilidade, registra a reserv
 - `GET /appointments/{id}` retorna `200 OK` para agendamento existente e `404 Not Found` para id inexistente.
 - `DELETE /appointments/{id}` cancela o agendamento e retorna `204 No Content`; o horario volta a ficar disponivel.
 - A notificacao e publicada somente depois da confirmacao da operacao no banco de dados.
-- Falha na publicacao da notificacao deve ser recuperavel por mecanismo de retentativa, sem desfazer uma reserva confirmada. Essa premissa exige uma decisao arquitetural antes de virar criterio definitivo.
-- Os testes usam banco e fila isolados, dados ficticios e um relogio controlavel. Nao chamam servicos externos reais.
+- Os testes usam banco e fila isolados e dados ficticios. As regras de retentativa e idempotencia precisam ser definidas antes de serem tratadas como criterios definitivos.
 
 ## Conteudo
 
@@ -26,6 +25,8 @@ Ao solicitar um agendamento, a API consulta a disponibilidade, registra a reserv
 - [Analise dos resultados](docs/analise.md)
 - [Texto para o forum](docs/postagem-forum.md)
 
-## Publicacao
+## Repositorio
 
-Crie um repositorio publico no GitHub, por exemplo `prompts-testes-integracao-agendamento-genai`, envie estes arquivos e substitua no texto do forum o campo `[LINK DO REPOSITORIO]` pelo endereco criado. A publicacao remota nao foi realizada por este ambiente.
+Repositorio publico: https://github.com/danieleesl/testes_akcit
+
+O material apresenta casos de teste especificados com apoio de LLM. Eles nao foram executados contra uma API implementada.
